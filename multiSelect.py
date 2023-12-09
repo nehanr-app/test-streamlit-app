@@ -15,7 +15,9 @@ try:
 
     # Select columns for plotting
     columns = data.columns.tolist()
+    x_axis = st.selectbox('Select X-axis:', columns)
     selected_columns = st.multiselect('Select columns for plotting:', columns)
+    y_axis = st.selectbox('Select Y-axis:', selected_columns)
 
     # x_axis = st.selectbox('Select X-axis:', columns)
     # y_axis = st.selectbox('Select Y-axis:', columns)
@@ -25,8 +27,8 @@ try:
         fig, ax = plt.subplots()
         for column in selected_columns:
             ax.plot(data.index, data[column], label=column)
-        ax.set_xlabel('Index')
-        ax.set_ylabel('Values')
+        ax.set_xlabel(x_axis)
+        ax.set_ylabel(y_axis)
         ax.legend()
         ax.set_title('Multiple Columns Plot')
         st.pyplot(fig)
