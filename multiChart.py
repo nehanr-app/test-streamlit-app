@@ -13,10 +13,10 @@ try:
 
     # Show data
     st.write("Data from Excel:")
-    st.write(data)
+    st.write(df)
 
     # Select columns for plotting
-    columns = data.columns.tolist()
+    columns = df.columns.tolist()
 
     selected_columns = st.multiselect('Select columns for plotting:', columns)
     x_axis = st.selectbox('Select X-axis:', selected_columns)
